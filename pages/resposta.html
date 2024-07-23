@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resposta da Manifestação</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+</head>
+
+<body class="respostaHTML">
+    <h1>Resposta da Manifestação</h1>
+    <!-- ESCOLHA DO TIPO DE CONTATO -->
+    <div class="meioDeContato">
+        <input type="radio" value="whatsapp" id="whatsapp" class="meioDeContatoEscolhido" name="opcaoDeContato"  onclick="wppSelecionado()" checked>
+        <label for="whatsapp">Via WhatsApp</label>
+        <span for="" style="font-size: 25px; color: #F79D83;"> | </span>
+        <input type="radio" value="email" id="email" class="meioDeContatoEscolhido" name="opcaoDeContato" onclick="emlSelecionado()">
+        <label for="email">Via e-mail</label>
+    </div>
+
+    
+    <hr style="margin: 0.35rem auto; width: 20%;">
+    
+    <!-- DIV OCULTA, E APARECERÁ DE ACORDO COM A ESCOLHA -->
+    <div class="mainDiv">
+        <div class="divOculta">
+            <div class="meioContato" id="whatsappEscolhido">
+                <!-- ESCOLHA, SE VAI INFORMAR A RESPOSTA OU SE É O PRIMEIRO CONTATO -->
+                <div class="tipoContato">
+                    <input type="radio" id="infoRes" name="TipoDecontato" onclick="infoResposta()" checked>
+                    <Label for="infoRes">Informar resposta</Label>
+                    <span for="" style="font-size: 25px; color: #F79D83;"> | </span>
+                    <input type="radio" id="primCtt" name="TipoDecontato" onclick="primContato()">
+                    <Label for="primCtt">Primeiro contato</Label>
+                </div>
+                <!-- OCULTAR WHATSAPP -->
+                <div class="divOcultaWhatsapp">
+                    <!-- INFORMAR RESPOSTA -->
+                    <div class="informarResposta" id="informarResposta">
+                        <hr style="margin: 0.35rem auto; width: 20%;">
+                        <label for="subrede">Subrede: <span class="itemObrigatório">*</span></label>
+                        <select name="opcoesSubrede" id="subredeWhatsapp">
+                            <option value="Coordenação da Central de Regulação">REGULAÇÃO</option>
+                            <option value="Superintendência de Atenção Básica (SAB)">ATENÇÃO BÁSICA</option>
+                            <option value="Superintendência Atenção Especializada (SAE)">ATENÇÃO ESPECIALIZADA</option>
+                            <option value="Ouvidoria SUS da Bahia - SESAB">SESAB / OUVIDORIA SUS - BA</option>
+                            <option value="Coordenação de Assistência Farmacêutica (CAF)">FARMACÊUTICA</option>
+                            <option value="Superintendência de Vigilância Sanitária (SUVISA)">VIGILÂNCIA SANITÁRIA</option>
+                            <option value="Superintendência de Vigilância em Saúde (SUVISAU)">VIGILÂNCIA EM SAÚDE</option>
+                            <option value="Departamento de Saúde Bucal">SAÚDE BUCAL</option>
+                            <option value="Centro de Controle de Zoonososes (CCZ)">CCZ</option>
+                            <option value="Departamento de Transporte">TRANSPORTE</option>
+                            <option value="Gabinete do Secretário">GABINETE</option>
+                            <option value="Recursos Humanos (RH)">RECURSOS HUMANOS</option>
+                        </select>
+                        <hr style="margin: 0.35rem auto; width: 20%;">
+                    
+                        <label for="numeroProtocolo">Nº do Procotolo:</label>
+                        <input type="number" id="numeroProtocolo" placeholder="202420000######">
+                        <hr style="margin: 0.35rem auto; width: 20%;">
+                        <br>
+                        <!-- TEXTAREA RESPOSTA DA SUBREDE -->
+                        <label for="resSubredeWhatsapp">Resposta da subrede:</label> <br>
+                        <textarea name="" class="flexivel" id="resSubredeWhatsapp" cols="50" rows="5" class="respostaEntrada" placeholder="COLE AQUI A RESPOSTA DA SUBREDE."></textarea>
+                        <br>
+                    </div>
+                    <!-- PRIMEIRO CONTATO -->
+                    <div class="primeiroContato" id="primeiroContato" style="display: none;">
+                        <hr style="margin: 0.35rem auto; width: 20%;">
+                        <label for="nomeManifestante">Nome do Manifestante:</label><br>
+                        <input type="text" id="nomeManifestante" placeholder="NOME COMPLETO DO MANIFESTANTE" style="width: 250px; height: 24px;"> <br>
+                        <hr style="margin: 0.35rem auto; width: 20%;">
+                        <label for="SexoManifestante">Gênero: </label>
+                        <input type="radio" name="genero" id="generoMasculino">
+                        <label for="generoMasculino">Masculino</label>
+                        <span for="" style="font-size: 25px; color: #F79D83;"> | </span>
+                        <input type="radio" name="genero" id="generoFeminino">
+                        <label for="generoFeminino">Feminino</label>
+                        <hr style="margin: 0.35rem auto; width: 20%;">
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="meioContato" id="emailEscolhido"  style="display: none;">
+                <input type="checkbox" id="enviarRespostaEmail" checked onclick="enviarMensagemEmail()">
+                <label for="enviarRespostaEmail"> Enviar Resposta </label>
+                <span for="" style="font-size: 25px; color: #F79D83;"> | </span>
+                <input type="checkbox" id="enviarPdfEmail">
+                <label for="enviarPdfEmail">Enviar PDF</label>
+                <hr style="margin: 0.35rem auto; width: 20%;">
+                <p id="nennhumItemSelecionado" style="display: none;"><span style="color: red;">ERRO!</span><br> Selecione ao menos uma opção acima.</p>
+                <label for="subrede">Subrede: <span class="itemObrigatório">*</span></label>
+                <select name="opcoesSubrede" id="subredeEmail">
+                    <option value="Coordenação da Regulação">REGULAÇÃO</option>
+                    <option value="Superintendência de Atenção Básica (SAB)">ATENÇÃO BÁSICA</option>
+                    <option value="Superintendência Atenção Especializada (SAE)">ATENÇÃO ESPECIALIZADA</option>
+                    <option value="Ouvidoria SUS da Bahia - SESAB">SESAB / OUVIDORIA SUS - BA</option>
+                    <option value="Coordenação de Assistência Farmacêutica (CAF)">FARMACÊUTICA</option>
+                    <option value="Superintendência de Vigilância Sanitária (SUVISA)">VIGILÂNCIA SANITÁRIA</option>
+                    <option value="Superintendência de Vigilância em Saúde (SUVISAU)">VIGILÂNCIA EM SAÚDE</option>
+                    <option value="Departamento de Saúde Bucal">SAÚDE BUCAL</option>
+                    <option value="Centro de Controle de Zoonoses (CCZ)">CCZ</option>
+                    <option value="Departamento de Transporte">TRANSPORTE</option>
+                    <option value="Gabinete do Secretário">GABINETE</option>
+                    <option value="Recursos Humanos (RH)">RECURSOS HUMANOS</option>
+                </select>
+                <hr style="margin: 0.35rem auto; width: 20%;">
+                <label for="numeroProtocolo">Nº do Procotolo:</label>
+                <input type="number" id="numeroProtocoloEmail" placeholder="202420000######">
+                <hr style="margin: 0.35rem auto; width: 20%;">
+                <br>
+                <div class="respostaEmail" id="respostaPorEmail">
+                    <label for="resSubredeEmail">Resposta da subrede:</label> <br>
+                    <textarea name="" id="resSubredeEmail" cols="50" rows="5" class="respostaEntrada" placeholder="COLE AQUI A RESPOSTA DA SUBREDE."></textarea>
+                </div>
+            </div>
+            
+            <div class="gerarTexto" id="gerarLimparTexto">
+                <button id="gerarTextoBtn" onclick="checarOpcaoMarcada()" class="btn">Gerar Modelo</button>
+                <button id="inputText" class="btn btnSmall" onclick="limparTextoEntradaResposta(this.id);">Limpar Campo</button>
+                <br>
+            </div>
+
+        </div>
+        
+    <br>
+    <div class="encaminharParaFechamento">
+        <button class="btn btn-center" style="width: 20rem" id="EncaminharParaFechamento" onclick="EncaminharParaFechamento();">ENCAMINHAR RESPOSTA PARA FECHAMENTO → </button>
+    </div>
+        <br>
+        <!-- TEXTOAREA SAÍDA -->
+        <div class="respostaSaida">
+            <label for="outputText">Modelo Gerado:</label><br>
+            <textarea name="respostaSaida" id="outputText" cols="50" rows="5" placeholder="O TEXTO APARECERÁ AQUI."></textarea>
+            <br>
+            <button id="copyButton" class="btn" onclick="copiarTextoProcessado();">Copiar Modelo</button>
+            <button id="limpar" class="btn btnSmall" onclick="limparTextoSaida();">Limpar Texto</button>
+        </div>
+    </div>
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/resposta.js"></script>
+    <script src="../scripts/fechamento.js"></script>
+</body>
+
+</html>

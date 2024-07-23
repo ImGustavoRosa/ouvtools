@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechamento de Manifestação</title>
+    
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body onload="dAtual()">
+
+    <h1>Fechamento de Manifestação</h1>
+
+
+    <div class="containerConclusaoSubrede">
+        <label for="subrede">Subrede: <span class="itemObrigatório">*</span></label>
+        <select name="" id="subrede">
+            <option value="regulacao">REGULAÇÃO</option>
+            <option value="atBasica">ATENÇÃO BÁSICA</option>
+            <option value="atEspecializada">ATENÇÃO ESPECIALIZADA</option>
+            <option value="sesab">SESAB / OUVIDORIA SUS - BA</option>
+            <option value="farmaceutica">FARMACÊUTICA</option>
+            <option value="supVisa">VIGILÂNCIA SANITÁRIA</option>
+            <option value="supVisau">VIGILÂNCIA EM SAÚDE</option>
+            <option value="saudeBucal">SAÚDE BUCAL</option>
+            <option value="ccz">CCZ</option>
+            <option value="depTransporte">TRANSPORTE</option>
+            <option value="gabSec">GABINETE</option>
+            <option value="rh">RECURSOS HUMANOS</option>
+        </select>
+        <br>
+        <label for="posResposta">Conclusão: <span class="itemObrigatório">*</span></label>
+        <select name="posResposta" id="posResposta"  onchange="showHiddenDivResposta('respostaInformadaSelected', 'naoConseguiuContatoSelected', this)">
+            <option value="resInformada">RESPOSTA INFORMADA</option>
+            <option value="anonimo">ANÔNIMO</option>
+            <option value="naoConseguiuContato">NÃO CONSEGUIU CONTATO</option>
+        </select>
+
+    </div>
+    <br>
+    
+    <div class="hiddenDiv">
+        <div class="respostaInformadaSelected" id="respostaInformadaSelected">
+            <ul class="fechamentoOpcoesContato">
+                <li><label for="whatsapp">Resposta informada via: <span class="itemObrigatório">*</span> </label></li>
+                <li class="opcaoContatoFechamento"><input type="radio" class="respostaInformadaOpt" value="whatsapp" id="whatsapp" name="metodoRes" checked/><label for="whatsapp"> WhatsApp</label></li>
+                <li class="opcaoContatoFechamento"><input type="radio" class="respostaInformadaOpt" value="telefone" id="telefone" name="metodoRes" /><label for="telefone"> Telefone</label></li>
+                <li class="opcaoContatoFechamento"><input type="radio" class="respostaInformadaOpt" value="e-mail" id="email" name="metodoRes" autocomplete="off" /><label for="email"> E-mail</label></li>
+            </ul>
+            
+            <hr style="margin: 0.35rem auto; width: 20%;">
+            <div class="mainflexfiv" style="display: flex; justify-content: center;">
+                <div class="flexdiv1">
+                    <label for="input1" id="dataHoraResposta">Data e hora da resposta:</label>
+                </div>
+                <div class="flexdiv1">
+                    <table>
+                        <tr>
+                            <td style="width: 110px; max-width: 110px; overflow: hidden; white-space: nowrap;">
+                            <input type="date" id="input1" hidden="hidden" style="width: 106px;">
+                            <select name="opcaoDataHora" id="select1" onchange="selection('select1')">
+                                <option value="1" id="dataDeHoje">Hoje</option>
+                                <option value="0">Outra data</option>
+                            </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="flexdiv1">
+                    <!-- <input type="date" name="data" id="dataDaResposta"> -->
+                    <label for="horaDaResposta" id="mostrarDataAtual"></label>
+                    <input type="time" name="data" id="horaDaResposta">
+                    <button id="limparDataHora" onclick="limparCampoDataHora()" class="btn" style="padding: 0.20rem 0.5rem; border-radius: 8px; width: 7rem; height: 1.5rem;">Limpar Campo</button>
+                    <!-- <button id="btnExample" onclick="obeterHoraAtual()">TESTE</button> -->
+                </div>
+            </div>
+        </div>
+            
+        
+        <hr style="margin: 0.35rem auto; width: 20%;">
+
+        </div>
+        <div class="naoConseguiuContatoSelected" id="naoConseguiuContatoSelected">
+            <label for="vezesTentouContato">Quantas vezes tentou o contato:</label>
+            <select name="vezesTentouContato" id="vezesTentouContato">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 ou mais</option>
+            </select>
+            <br>
+                
+            <hr style="margin: 0.35rem auto; width: 20%;">
+            <label for="tentouContatoWhatsApp">Tentou contato por:</label>
+            <input type="checkbox" class="tentouContato" id="tentouContatoWhatsApp" value="whatsapp">WhatsApp
+            <input type="checkbox" class="tentouContato" id="tentouContatoTelefone" value="telefone">Telefone
+            <input type="checkbox" class="tentouContato" id="tentouContatoEmail" value="email">E-mail
+            <br>
+            
+            <hr style="margin: 0.35rem auto; width: 20%;">
+            <label for="primeiraData">O contato foi tentado entre as datas:</label>
+            <br>
+            <input type="date" name="primeiraData" id="primeiraData"> <label for="ultimaData">à</label> <input type="date" name="ultimaData" id="ultimaData">
+        </div>
+    </div>
+        <br>
+        <br>
+        <div class="textAreaFlex">
+            <div>
+                <label for="respostaSubrede">Resposta da subrede:</label><br/>
+                <textarea name="respostaSubrede" id="respostaSubrede" class="respostaSubredeFechamento" cols="40" rows="5" placeholder="COLE AQUI A RESPOSTA DA SUBREDE."></textarea>
+                <br>
+                <button onclick="processarTextoFechamento()" class="btn" style="width: 12.3rem;">Gerar Modelo</button>
+                <button id="limparResposta" class="btn btnSmall" style="width: 7rem;" onclick="limparTextoEntradaFechamento(this.id);">Limpar Campo</button>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label for="outputText">Modelo Gerado:</label><br>
+                <textarea name="" class="" id="outputText" cols="40" rows="5" placeholder="O MODELO GERADO APARECERÁ AQUI"></textarea><br>
+                <button id="copyButton" class="btn" style="width: 12.3rem;" onclick="copiarTextoProcessado()">Copiar Modelo</button>
+                <button id="limpar" class="btn btnSmall" style="width: 7rem;" onclick="limparTextoSaida()">Limpar Modelo</button>
+            </div>
+        </div>
+
+    
+    
+    
+    
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/fechamento.js"></script>
+</body>
+</html>

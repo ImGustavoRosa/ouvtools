@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abertura</title>
+    <style>
+        .container{
+            display: flex;
+        }
+    </style>
+    
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Encaminhamento de Manifestação</h1>
+    <!-- <div id="selecao">
+        <label for="atendimento">MODELOS:</label>
+        <select id="encaminhar">
+            <option value="rec-den-sol">RECLAMAÇÃO / DENÚNCIA / SOLICITAÇÃO</option>
+            <option value="sug-elo">SUGESTÃO / ELOGIO</option>
+            <option value="info">INFORMAÇÃO</option>
+        </select>
+    </div>
+    <button onclick="tipoEncaminhamento()">Gerar Texto</button>
+    <br> -->
+    <h3>Modelos de Textos para encaminhamento das manifestações às subredes.</h3>
+    <div class="container">
+        <article class="modelos box1">
+            <div class="tituloEncaminhamento"><label for="rec-den-sol"><h5>RECLAMAÇÃO / DENÚNCIA / SOLICI.</h5></label></div>
+            <textarea id="rec_den_sol" class="textoSaida" rows="5" cols="36" readonly>ENCAMINHAMOS A PRESENTE MANIFESTAÇÃO PARA ANÁLISE E PROVIDÊNCIAS CABÍVEIS. SOLICITAMOS A GENTILEZA DE INFORMAR A ESTA OUVIDORIA O QUE HOUVER A RESPEITO NO PRAZO ESTIPULADO EM LEI, NOS ENVIANDO O PARECER CONCLUSIVO DAS PROVIDÊNCIAS TOMADAS, QUE DEVERÁ SER INFORMADO NA ÍNTEGRA AO (A) CIDADÃO (Ã).
+
+ATENCIOSAMENTE,
+                
+OUVIDORIA SUS/SMS LAURO DE FREITAS - BA.</textarea><br>
+            
+        <button id="btnCopiarrec_den_sol" class="btn" style="width: 17.7rem; margin: 0 0.5rem;" onclick="copiarTextoProcessado_rec_den_sol()">Copiar Texto</button>
+        <div id="copySuccessMessage_rec_den_sol" class="textoCopiado" style="text-align: center; display: none;">Texto copiado com sucesso!
+        </div>
+        </article>
+        <!--  -->
+        <article class="modelos box2">
+            <div class="tituloEncaminhamento"><label for="sug-elo"><h5>SUGESTÃO / ELOGIO</h5></label></div>
+            <textarea id="sug_elo" class="textoSaida" rows="5" cols="36" readonly>ENCAMINHAMOS DEMANDA PARA CONHECIMENTO E PRONUNCIAMENTO.
+
+ATENCIOSAMENTE,
+                
+OUVIDORIA SUS/SMS LAURO DE FREITAS - BA.</textarea><br>
+            
+        <button id="btnCopiar_sug_elo" class="btn" style="width: 17.7rem; margin: 0 0.5rem;" onclick="copiarTextoProcessado_sug_elo()">Copiar Texto</button>
+        <div id="copySuccessMessage_sug_elo" class="textoCopiado" style="text-align: center; display: none;">Texto copiado com sucesso!
+        </div>
+        </article>
+        <!--  -->
+        <article class="modelos box3">
+            <div class="tituloEncaminhamento"><label for="info"><h5>INFORMAÇÃO</h5></label></div>
+            <textarea id="info" class="textoSaida" rows="5" cols="36" readonly>ESTAMOS ENCAMINHANDO A DEMANDA PARA CONHECIMENTO, ANÁLISE E PROVIDÊNCIAS CABÍVEIS. RESSALTAMOS QUE DE ACORDO COM DISPOSTO NA LAI - LEI DE ACESSO À INFORMAÇÃO - Nº12.527, DE 18/11/2011, DEMANDAS DE INFORMAÇÃO PRECISAM SER RESPONDIDAS NO PRAZO MÁXIMO DE 20 DIAS CORRIDOS, CASO CONTRÁRIO, O PORTADOR DA INFORMAÇÃO PODERÁ SOFRER SANÇÃO PENAL, CONFORME ARTIGOS 32º E 33º DA REFERIDA LEI.
+
+ATENCIOSAMENTE,
+                
+OUVIDORIA SUS/SMS LAURO DE FREITAS - BA.</textarea><br>
+            
+        <button id="btnCopiar_info" class="btn" style="width: 17.7rem; margin: 0 0.5rem;" onclick="copiarTextoProcessado_info()">Copiar Texto</button>
+        <div id="copySuccessMessage_info" class="textoCopiado" style="text-align: center; display: none;">Texto copiado com sucesso!
+        </div>
+        </article>
+    </div>
+    
+    
+    
+    <br>
+    <!-- javascript -->
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/encaminhamento.js"></script>
+</body>
+
+</html>

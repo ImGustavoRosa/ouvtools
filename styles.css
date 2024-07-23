@@ -1,0 +1,234 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #FBFCFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+.btn{
+  text-transform: uppercase;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: #F3FAE1;
+  width: 16.7rem;
+  height: 2.5rem;
+  display: inline-block;
+  font-size: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  /* padding: 0.75rem; */
+}
+.btn:hover{
+  background-image: linear-gradient(rgb(0 0 0/15%) 0 0);
+}
+.btnSmall{
+  background-color: #FCF6B1;
+  width: 7.3rem;
+  border-width: 1px;
+  border-radius: 8px;
+}
+
+.textoCopiado{
+  text-align: center;
+  font-size: 16px;
+  display: none;
+  color: black;
+  left: 0;
+  right: 0;
+  margin: 0.75rem auto 0 auto;
+  background-color: #D9F4C7;
+  width: 17.7rem;
+  border-radius: 8px;
+}
+.textoLimpado{
+  text-align: center;
+  font-size: 16px;
+  display: none;
+  color: black;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0.75rem auto 0 auto;
+  background-color: #E3D888;
+  width: 17.7rem;
+  border-radius: 8px;
+}
+.itemObrigatório{
+  color: red;
+}
+
+.demanda {
+  display: flex;
+  text-transform: capitalize;
+  justify-content: center;
+}
+/* abertura */
+.abertura {
+  margin-right: 1px;
+  padding: 6px 15px;
+  border: 2px solid #808080;
+  background-color: #f5f5f5;
+}
+.aberturaMain{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aberturaMainMenu {
+  width: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 0.15rem;
+}
+
+.aberturaMenu{
+  width: 15rem;
+  height: 1.75rem;
+  background-color: #6985C050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 0.3rem 1rem 0;
+  border-radius: 10px;
+}
+
+.protocolo-body{
+  display: flex;
+  justify-content: center;
+}
+.numero-protocolo{
+margin: 0.25rem 0.5rem 1rem 0;
+}
+.protocolo-gerado{
+  margin: 0.25rem 0 1rem 0.5rem;
+}
+
+.protocolo-header{
+  display: flex;
+  justify-content: center;
+}
+.protocolo-header-subrede{
+  margin: 0.25rem 0.5rem 1rem 0;
+}
+.protocolo-header-tipificacao{
+  margin: 0.25rem 0 1rem 0.5rem;
+}
+.protocolo-header-anonimo{
+  margin: 0.25rem 0 1rem 0.5rem;
+}
+
+/* fim abertura */
+.encaminhamento {
+  margin-right: 1px;
+  padding: 6px 15px;
+  border: 2px solid #808080;
+  background-color: #f5f5f5;
+}
+.fechamento {
+  display: flex;
+  justify-content: center;
+  border: 2px solid #808080;
+  background-color: #f5f5f5;
+}
+.resposta {
+  margin-right: 1px;
+  padding: 6px 15px;
+  border: 2px solid #808080;
+  background-color: #f5f5f5;
+}
+/**/
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto -2rem auto;
+}
+
+.box {
+  width: 10rem;
+  height: 2rem;
+  background-color: #6985C050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 0.15rem;
+}
+
+h1{
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.fechamentoOpcoesContato li{
+  display: inline-block;
+}
+.containerConclusaoSubrede{
+  display: flex;
+  max-width: 620px;
+  justify-content: space-between;
+  margin: 0 auto -1rem auto;
+}
+
+.opcaoContatoFechamento{
+  background-color: #D1DEDE;
+  margin: 0.3rem 0.1rem;
+  padding: 0 0.25rem;
+  border-radius: 8px;
+}
+.content {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 18px;
+}
+
+  /* Fechamento */
+    /* hidden DIV */
+#naoConseguiuContatoSelected {
+  display: none;
+  }
+
+.footer{
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.ouvName{
+  color: #6985C0;
+}
+.toolsName{
+  color: #F79D83;
+}
+.slogan{
+  color: #848586;
+}
+.tituloEncaminhamento{
+  background-color: #D1DEDE;
+  width: 17.7rem;
+  margin-left: 0.45rem;
+  margin-bottom: 0.25rem;
+  border-radius: 5px;
+}
+
+.textAreaFlex{
+  display: flex;
+  justify-content: center;
+}
+.textAreaFlex div{
+  margin-right: 1rem;
+}
+
+.btn-center{
+  margin: 0 auto;
+}

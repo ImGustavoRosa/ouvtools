@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abertura de Manifestação</title>
+    
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+</head>
+
+<body class="aberturaHTML">
+    <h1>Abertura de Manifestação</h1>
+    <div class="aberturaMain">
+        <div class="aberturaMainMenu">
+            <div class="aberturaMenu" id="aberturaSimples" onclick="AberturaSubContainerSelecionada(this.id)">Simples</div>
+            <div class="aberturaMenu" id="aberturaAvancada" onclick="AberturaSubContainerSelecionada(this.id)">Avançada</div>
+            <div class="aberturaMenu" id="aberturaProtocolo" onclick="AberturaSubContainerSelecionada(this.id)">Protocolo</div>
+            <div class="aberturaMenu" id="aberturaPlanilha" onclick="AberturaSubContainerSelecionada(this.id)">Planilha</div>
+        </div>
+    </div>
+    <!-- ABERTURA SIMPLES -->
+    <div class="abertura-simples" id="testabertura">
+        <label for="atendimento">Atendimento via: <span class="itemObrigatório">*</span></label>
+        <select id="atendimento">
+            <option value="whatsapp" selected>WHATSAPP</option>
+            <option value="telefone">TELEFONE</option>
+            <option value="presencial">PRESENCIALMENTE</option>
+            <option value="email">E-MAIL</option>
+        </select>
+        <br>
+        <label for="anonimo">Anônimo:</label>
+        <select id="anonimo">
+            <option value="NAO" selected>NÃO</option>
+            <option value="SIM">SIM</option>
+        </select> <label for=""> | </label>
+        <label for="aberturaManifestacaoIntegra">Texto na Íntegra?</label>
+        <input type="checkbox" id="aberturaManifestacaoIntegra">
+        <br>
+        <br>
+        
+        <div class="textAreaFlex">
+            <div class="box-1">
+                <p>Texto da manifestação:</p>
+                <textarea id="inputText" rows="5" cols="40" placeholder="COLE OU DIGITE AQUI O TEXTO DA MANIFESTAÇÃO."></textarea>
+                <br>
+                <button onclick="processarTexto()" class="btn" style="width: 12.5rem;">Gerar Modelo</button>
+                <button id="limpar" class="btn btnSmall" onclick="limparTextoEntrada()" style="width: 7rem;">Limpar Texto</button>
+                <br>
+                <div id="textoEntradaLimpado" class="textoLimpado"><strong>Limpado</strong> com sucesso!</div>
+                <br>
+            </div>
+            <div class="box-2">
+                <p>Modelo Gerado:</p>
+                <textarea id="outputText" class="textoSaida" rows="5" cols="40" placeholder="O MODELO GERADO APARECERÁ AQUI."></textarea>
+                </br>
+                <button id="copyButton" class="btn" onclick="copiarTextoProcessado()" style="width: 12.5rem;">Copiar Modelo</button>
+                <button id="limpar" class="btn btnSmall" onclick="limparTextoSaida()" style="width: 7rem;">Limpar Texto</button>
+            </div>
+        </div>
+        <br>
+        <div class="encaminhar-bottom">
+            <p>Encaminhar para:</p>
+            <button id="abertura-simples-encaminhar-protocolo" class="btn btnSmall" onclick="aberturaSimplesEncaminharProtocolo()">protocolo</button>
+            <button id="abertura-simples-encaminhar-planilha" class="btn btnSmall" onclick="aberturaSimplesEncaminharPlanilha()">planilha</button>
+        </div>
+    </div>
+    <!-- ABERTURA AVANÇADA -->
+    <div class="abertura-avancada">
+        <p>ESTA FUNÇÃO ESTÁ EM DESENVOLVIMENTO.</p>
+    </div>
+
+    <!-- ABERTURA PROTOCOLO -->
+    <div class="abertura-protocolo">
+        <div class="protocolo-main">
+            <div class="protocolo-header">
+                <div class="protocolo-header-subrede">
+                    <label for="protocoloSubrede">Subrede:</label>
+                    <select name="" id="protocoloSubrede">
+                        <option value="opcional">OPCIONAL</option>
+                        <option value="REGULAÇÃO">REGULAÇÃO</option>
+                        <option value="ATENÇÃO BÁSICA ">ATENÇÃO BÁSICA </option>
+                        <option value="ATENÇÃO ESPECIALIZADA">ATENÇÃO ESPECIALIZADA</option>
+                        <option value="FARMACÊUTICA">FARMACÊUTICA</option>
+                        <option value="VIGILÂNCIA EM SAÚDE">VIGILÂNCIA EM SAÚDE</option>
+                        <option value="VIGILÂNCIA SANITÁRIA">VIGILÂNCIA SANITÁRIA</option>
+                        <option value="CCZ">CCZ</option>
+                        <option value="SAÚDE BUCAL">SAÚDE BUCAL</option>
+                        <option value="GABINETE ">GABINETE </option>
+                        <option value="MINISTÉRIO DA SAÚDE">MINISTÉRIO DA SAÚDE</option>
+                        <option value="OUVIDORIA SUS DO ESTADO DA BAHIA">OUVIDORIA SUS BAHIA</option>
+                        <option value="SESAB">SESAB</option>
+                        <!-- <option value="AUDITORIA">AUDITORIA</option> -->
+                        <!-- <option value="RH">RH</option> -->
+                        <!-- <option value="TRANSPORTE">TRANSPORTE</option> -->
+                        <!-- <option value="FINANCEIRO">FINANCEIRO</option> -->
+                    </select>
+                </div>
+                <div class="protocolo-header-tipificacao">
+                    <label for="protocoloTipificacao">Tipificação:</label>
+                    <select name="" id="protocoloTipificacao">
+                        <option value="opcional">OPCIONAL</option>
+                        <option value="SOLICITAÇÃO">SOLICITAÇÃO</option>
+                        <option value="RECLAMAÇÃO">RECLAMAÇÃO</option>
+                        <option value="DENÚNCIA">DENÚNCIA</option>
+                        <option value="ELOGIO">ELOGIO</option>
+                        <option value="INFORMAÇÃO">INFORMAÇÃO</option>
+                        <option value="SUGESTÃO">SUGESTÃO</option>
+                    </select>
+                </div>
+                <div class="protocolo-header-anonimo">
+                    <label for="protocoloAnonimo">Anônimo?</label>
+                    <select name="" id="protocoloAnonimo">
+                        <option value="NAO">NÃO</option>
+                        <option value="SIM">SIM</option>
+                    </select>
+                </div>
+            </div>
+            <div class="protocolo-body">
+                <div class="numero-protocolo">
+                    <label for="texto-protocolo">Nº Protocolo:</label>
+                    <br>
+                    <textarea id="texto-protocolo" placeholder="TEXTO COMPLETO OU Nº DE PROTOCOLO COM OU SEM A CHAVE DE ACESSO." rows="5" cols="40"></textarea>
+                    <br>
+                    <button onclick="processarProtocolo()" class="btn" style="width: 12.5rem;">Gerar Modelo Protocolo</button>
+                    <button id="limparTextoEntradaProtocolo" class="btn btnSmall" onclick="LimparProtocolo(this.id)" style="width: 7rem;">Limpar Texto</button>
+        
+                </div>
+                <div class="protocolo-gerado">
+                    <label for="texto-gerado-protocolo">Modelo Gerado:</label>
+                    <br>
+                    <textarea id="texto-gerado-protocolo" placeholder="APÓS GERADO, O TEXTO APARECERAR AQUI." rows="5" cols="40"></textarea>
+                    <br>
+                    <button id="copyButton" class="btn" onclick="copiarTextoProtocolo()" style="width: 12.5rem;">Copiar Modelo Protocolo</button>
+                    <button id="limparTextoSaidaProtocolo" class="btn btnSmall" onclick="LimparProtocolo(this.id)" style="width: 7rem;">Limpar Texto</button>
+                </div>
+            </div>
+            <button class="btn" id="abertura-protocolo-btn" onclick="aberturaProtocoloEncaminharPlanilha()">ENCAMINHAR PARA PLANILHA →</button>
+        </div>
+    </div>
+
+    <!-- ABERTURA PLANILHA -->
+    <div class="abertura-planilha">
+        <div class="planilha-main">
+            <div class="planilha-funcoes">
+                <!-- PLANILHA PROTOCOLO -->
+                <label for="planilha-protocolo">Protocolo: <span class="itemObrigatório">*</span></label>
+                <input type="text" name="" id="planilha-protocolo" placeholder="202420000XXXXXX">
+
+                <!-- PLANILHA CHAVE DE ACESSO -->
+                <label for="planilha-chave-acesso">Chave de Acesso:</label>
+                <input type="text" name="" id="planilha-chave-acesso">
+                <br>
+
+                <!-- PLANILHA PLANILHA TIPIFICAÇÃO -->
+                <label for="planilha-tipificacao">Tipo: <span class="itemObrigatório">*</span></label>
+                <select name="" id="planilha-tipificacao">
+                    <option value="SOLICITAÇÃO">SOLICITAÇÃO</option>
+                    <option value="RECLAMAÇÃO">RECLAMAÇÃO</option>
+                    <option value="DENÚNCIA">DENÚNCIA</option>
+                    <option value="ELOGIO">ELOGIO</option>
+                    <option value="INFORMAÇÃO">INFORMAÇÃO</option>
+                    <option value="SUGESTÃO">SUGESTÃO</option>
+                </select>
+
+                <!-- PLANILHA SUBREDE -->
+                <label for="">Subrede: <span class="itemObrigatório">*</span></label>
+                <select name="" id="planilha-subrede">
+                    <option value="REGULAÇÃO">REGULAÇÃO</option>
+                    <option value="ATENÇÃO BÁSICA ">ATENÇÃO BÁSICA </option>
+                    <option value="ATENÇÃO ESPECIALIZADA">ATENÇÃO ESPECIALIZADA</option>
+                    <option value="FARMACÊUTICA">FARMACÊUTICA</option>
+                    <option value="VIGILÂNCIA EM SAÚDE">VIGILÂNCIA EM SAÚDE</option>
+                    <option value="VIGILÂNCIA SANITÁRIA">VIGILÂNCIA SANITÁRIA</option>
+                    <option value="CCZ">CCZ</option>
+                    <option value="SAÚDE BUCAL">SAÚDE BUCAL</option>
+                    <option value="SESAB">SESAB</option>
+                    <option value="AUDITORIA">AUDITORIA</option>
+                    <option value="RH">RH</option>
+                    <option value="TRANSPORTE">TRANSPORTE</option>
+                    <option value="FINANCEIRO">FINANCEIRO</option>
+                    <option value="GABINETE ">GABINETE </option>
+                    <option value="MINISTÉRIO DA SAÚDE">MINISTÉRIO DA SAÚDE</option>
+                    <option value="OUVIDORIA SUS DO ESTADO DA BAHIA">OUVIDORIA SUS BAHIA</option>
+                </select>
+                <br>
+
+                <!-- PLANILHA SERVIÇO -->
+                <label for="planilha-servico">Serviço: <span class="itemObrigatório">*</span></label>
+                <select name="" id="planilha-servico">
+                    <option value="CONSULTA">CONSULTA</option>
+                    <option value="EXAMES ">EXAMES </option>
+                    <option value="CIRURGIA">CIRURGIA</option>
+                    <option value="FISCALIZAÇÃO">FISCALIZAÇÃO</option>
+                    <option value="DOCUMENTO">DOCUMENTO</option>
+                    <option value="UNIDADE">UNIDADE</option>
+                    <option value="FALTA DE MEDICAMENTO">FALTA DE MEDICAMENTO</option>
+                    <option value="FALTA DE INSUMOS ">FALTA DE INSUMOS </option>
+                    <option value="FALTA DE MÉDICO">FALTA DE MÉDICO</option>
+                    <option value="FALTA DE PROFISSIONAL DA SAÚDE">FALTA DE PROF. DA SAÚDE</option>
+                    <option value="NÃO ATENDIMENTO">NÃO ATENDIMENTO</option>
+                    <option value="PROCEDIMENTO SUS">PROCEDIMENTO SUS</option>
+                    <option value="IDOSO">IDOSO</option>
+                    <option value="VACINA (REDE BÁSICA)">VACINA (REDE BÁSICA)</option>
+                    <option value="COVID-19 ">COVID-19 </option>
+                    <option value="DIFICULDADE A INFORMAÇÃO">DIFICULDADE A INFORMAÇÃO</option>
+                    <option value="SECRETARIA DE SAÚDE">SECRETARIA DE SAÚDE</option>
+                    <option value="PROFISSIONAL DA SAÚDE">PROFISSIONAL DA SAÚDE</option>
+                    <option value="NÃO PERTINENTE">NÃO PERTINENTE</option>
+                    <option value="OUTROS">OUTROS</option>
+                    <option value="AGENTE COMUNITÁRIO DE SAÚDE">AGENTE COMun. DE SAÚDE</option>
+                    <option value="CLÍNICAS CONVENIADAS">CLÍNICAS CONVENIADAS</option>
+                    <option value="AÇÃO">AÇÃO</option>
+                    <option value="APARELHOS DE SAÚDE">APARELHOS DE SAÚDE</option>
+                    <option value="EQUIPAMENTO QUEBRADO">EQUIPAMENTO QUEBRADO</option>
+                    <option value="ASSÉDIO FUNCIONÁRIO PÚBLICO">ASSÉDIO FUNC. PÚBLICO</option>
+                </select>
+                <br>
+
+                <!-- PLANILHA DATA -->
+                <label for="planilha-data">Data: <span class="itemObrigatório">*</span></label>
+                <input type="date" name="" id="planilha-data">
+
+                <!-- PLANILHA PRAZO -->
+                <label for="planilha-prazo">Prazo: <span class="itemObrigatório">*</span></label>
+                <input type="date" name="" id="planilha-prazo">
+                
+                <!-- PLANILHA STATUS -->
+                <label for="planilha-status">Status: <span class="itemObrigatório">*</span></label>
+                <select name="" id="planilha-status">
+                    <option value="PENDENTE">PENDENTE</option>
+                    <option value="PENDENTE">CONCLUÍDA</option>
+                </select>
+                <br>
+                <!-- PLANILHA CONCLUSÃO -->
+                <label for="planilha-conclusao">Conclusão: <span class="itemObrigatório">*</span></label>
+                <select name="" id="planilha-conclusao">
+                    <option value="SEM INFORMAÇÃO">SEM INFORMAÇÃO</option>
+                    <option value="SATISFATÓRIO">SATISFATÓRIO</option>
+                    <option value="INSATISFATÓRIO">INSATISFATÓRIO</option>
+                </select>
+
+                <!-- PLANILHA UNIDADE -->
+                <label for="planilha-unidade">Unidade:</label>
+                <select name="" id="planilha-unidade">
+                    <option value="">OPCIONAL (DEIXAR EM BRANCO)</option>
+                    <option value="REGULAÇÃO">REGULAÇÃO</option>
+                    <option value="CAPS AD">CAPS AD</option>
+                    <option value="CAPS I">CAPS I</option>
+                    <option value="CAPS II">CAPS II</option>
+                    <option value="CAPS INFANTIL">CAPS INFANTIL</option>
+                    <option value="CEO - ITINGA">CEO - ITINGA</option>
+                    <option value="CER">CER</option>
+                    <option value="CLÍNICA ATLÂNTICO PRÓ SAÚDE">CLÍNICA ATLÂNTICO PRÓ SAÚDE</option>
+                    <option value="CHECK CARDIO">CHECK CARDIO</option>
+                    <option value="CLINICA ATUAL">CLINICA ATUAL</option>
+                    <option value="CLÍNICA PROVIDA">CLÍNICA PROVIDA</option>
+                    <option value="CLÍNICA DELFIN">CLÍNICA DELFIN</option>
+                    <option value="CLÍNICA RENASCER E VIVER - ITINGA">CLÍNICA RENASCER E VIVER - ITINGA</option>
+                    <option value="COMPLEXO DE SAÚDE">COMPLEXO DE SAÚDE</option>
+                    <option value="GRIPÁRIO SANTO AMARO DE IPITANGA">GRIPÁRIO SANTO AMARO DE IPITANGA</option>
+                    <option value="HOSPITAL JORGE NOVIS">HOSPITAL JORGE NOVIS</option>
+                    <option value="PA AREIA BRANCA">PA AREIA BRANCA</option>
+                    <option value="PA NELSON BARROS - CENTRO">PA NELSON BARROS - CENTRO</option>
+                    <option value="POLICLINICA PRF.  CARLOS BASTOS">POLICLINICA PRF.  CARLOS BASTOS</option>
+                    <option value="POLICLINICA DE SIMÕES FILHO">POLICLINICA DE SIMÕES FILHO</option>
+                    <option value="SAMU">SAMU</option>
+                    <option value="UPA INFANTIL">UPA INFANTIL</option>
+                    <option value="UPA ITINGA">UPA ITINGA</option>
+                    <option value="USF ANTONIO CARLOS RODRIGUES - AREIA BRANCA">USF ANTONIO CARLOS R. - AREIA BRANCA</option>
+                    <option value="USF CHAFARIZ - LAGOA DOS PATOS">USF CHAFARIZ - LAGOA DOS PATOS</option>
+                    <option value="USF CIDADE NOVA - ITINGA">USF CIDADE NOVA - ITINGA</option>
+                    <option value="USF ESPAÇO CIDADÃO - ITINGA">USF ESPAÇO CIDADÃO - ITINGA</option>
+                    <option value="USF IRMÃ DULCE - PORTÃO">USF IRMÃ DULCE - PORTÃO</option>
+                    <option value="USF JARDIM INDEPENDÊNCIA - ITINGA">USF JARDIM INDEPENDÊNCIA - ITINGA</option>
+                    <option value="USF JARDIM TARUMÃ - ITINGA">USF JARDIM TARUMÃ - ITINGA</option>
+                    <option value="USF MANOEL JOSE PEREIRA - CAPELÃO">USF MANOEL JOSE PEREIRA - CAPELÃO</option>
+                    <option value="USF NOEL ALVES DA CRUZ - PORTÃO">USF NOEL ALVES DA CRUZ - PORTÃO</option>
+                    <option value="USF PADRE JOÃO ABEL - JAMBEIRO">USF PADRE JOÃO ABEL - JAMBEIRO</option>
+                    <option value="USF PARQUE SÃO PAULO - ITINGA">USF PARQUE SÃO PAULO - ITINGA</option>
+                    <option value="USF PASTOR ISRAEL MOREIRA">USF PASTOR ISRAEL MOREIRA</option>
+                    <option value="USF SANTA BARBARA - ITINGA">USF SANTA BARBARA - ITINGA</option>
+                    <option value="USF SÃO JUDAS TADEU - ITINGA">USF SÃO JUDAS TADEU - ITINGA</option>
+                    <option value="USF VIDA NOVA">USF VIDA NOVA</option>
+                    <option value="USF VILA NOVA (MARIA EMÍLIA) - PORTÃO">USF VILA NOVA (MARIA EMÍLIA) - PORTÃO</option>
+                </select>
+                <br>
+
+                <!-- PLANILHA PROFISSIONAL -->
+                <label for="planilha-profissional">Profissional:</label>
+                <input type="text" id="planilha-profissional" placeholder="PESSOA MENCIONADA">
+
+                <!-- PLANILHA OUVIDORIA DE ORIGEM -->
+                <label for="planilha-ouvidoria-de-origem">OUV de Origem: <span class="itemObrigatório">*</span></label>
+                <select name="" id="planilha-ouvidoria-de-origem">
+                    <option value="SECRETARIA MUNICIPAL DE SAÚDE DE LAURO DE FREITAS">SMS LAURO DE FREITAS</option>
+                    <option value="SECRETARIA ESTADUAL DE SAÚDE DA BAHIA">SESAB</option>
+                    <option value="OUVIDORIA-GERAL DO SUS">OUVIDORIA-GERAL DO SUS</option>
+                </select>
+                <br>
+
+                <!-- PLANILHA MEIO DE ATENDIMENTO -->
+                <label for="planilha-meio-de-atendimento">Via: <span class="itemObrigatório">*</span></label>
+                <select name="" id="planilha-meio-de-atendimento">
+                        <option value="TELEFONE">TELEFONE</option>
+                        <option value="PRESENCIAL">PRESENCIAL</option>
+                        <option value="DISQUE SAÚDE">DISQUE SAÚDE</option>
+                        <option value="E-MAIL">E-MAIL</option>
+                        <option value="FORMULÁRIO WEB">FORMULÁRIO WEB</option>
+                        <option value="CARTA">CARTA</option>
+                    </option>
+                </select>
+
+                <!-- PLANILHA SERVIÇO/ATENDIMENTO -->
+                <label for="planilha-servico-atendimento">Serv./Aten:</label>
+                <select name="" id="planilha-servico-atendimento">
+                    <option value="Dificuldade consulta - regulação" selected>Dificuldade consulta - regulação</option>
+                    <option value="">OPCIONAL (DEIXAR EM BRANCO)</option>
+                    <option value="Mosquito / Dengue - fiscalização / denúncia">Mosquito / Dengue - fiscalização / denúncia</option>
+                    <option value="Piscina residencial – Vistoria">Piscina residencial – Vistoria</option>
+                    <option value="Alimentos – Fiscalização">Alimentos – Fiscalização</option>
+                    <option value="Reclamação Consultas Especializadas">Reclamação Consultas Especializadas</option>
+                    <option value="Mau Atendimento - Rede especializada">Mau Atendimento - Rede especializada</option>
+                    <option value="Falta de medicamentos">Falta de medicamentos</option>
+                    <option value="Esgoto – notificação">Esgoto – notificação</option>
+                    <option value="Consulta Ortopedia e Traumatologia ">Consulta Ortopedia e Traumatologia </option>
+                    <option value="Exames Especializados ">Exames Especializados </option>
+                    <option value="Mau Atendimento - Rede Básica ">Mau Atendimento - Rede Básica </option>
+                    <option value="Reclamação Consultas - Rede Básica ">Reclamação Consultas - Rede Básica </option>
+                    <option value="Reclamação de Cirurgias 178">Reclamação de Cirurgias 178</option>
+                    <option value="Não Atendimento - Rede Básica 170">Não Atendimento - Rede Básica 170</option>
+                    <option value="Caixa/Reservatório de Água - FORÇA TAREFA 159">Caixa/Reservatório de Água - FORÇA TAREFA 159</option>
+                    <option value="Reclamação de funcionamento da Unidade de Saúde 152">Reclamação de funcionamento da Unidade de Saúde 152</option>
+                    <option value="Falta de Médico ">Falta de Médico </option>
+                    <option value="Atendimento idoso ">Atendimento idoso </option>
+                    <option value="Saúde Idoso">Saúde Idoso</option>
+                    <option value="Vacinas - Rede Básica ">Vacinas - Rede Básica </option>
+                    <option value="Consulta Neurologia ">Consulta Neurologia </option>
+                    <option value="Denuncia vigilância sanitária bichos">Denuncia vigilância sanitária bichos</option>
+                    <option value="Elogio">Elogio</option>
+                    <option value="Denuncia limpeza">Denuncia limpeza</option>
+                    <option value="Elogio Médicos e funcionários ">Elogio Médicos e funcionários </option>
+                    <option value="Resultado de Exames ">Resultado de Exames </option>
+                    <option value="Denuncia vigilância sanitária Covid-19">Denuncia vigilância sanitária Covid-19</option>
+                    <option value="Denuncia limpeza em estabelecimentos">Denuncia limpeza em estabelecimentos</option>
+                    <option value="Solicitação Vig. Sanitária">Solicitação Vig. Sanitária</option>
+                    <option value="Reclamação Transporte">Reclamação Transporte</option>
+                    <option value="Disponibilidade para Trabalhar no Covid -19">Disponibilidade para Trabalhar no Covid -19</option>
+                </select>
+                <br>
+                <br>
+
+                <!-- PLANILHA observação -->
+                <label for="planilha-observacao">Observação: <span class="itemObrigatório">*</span></label>
+                <textarea name="" id="planilha-observacao" placeholder="Digite aqui os detalhes da manifestação."></textarea>
+            </div>
+            <br>
+            <div class="planilha-bottom">
+                <div class="planilha-gerar">
+                    <button onclick="modeloPlanilha()" class="btn btnSmall" style="background-color: rgb(199, 214, 218);">Gerar Modelo</button>
+                </div>
+                <hr style="margin: 0.35rem auto; width: 20%;">
+                <div class="planilha-resultado">
+                    <label>Modelo Gerado:</label>
+                    <br>
+                    <textarea name="" cols="50" rows="2" id="planilhaGerada"></textarea>
+                    <br>
+                    <button class="btn" onclick="planilhaCopiarModelo()">COPIAR</button>
+                    <button class="btn btnSmall" onclick="planilhaLimparModelo()">Limpar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- javascript -->
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/abertura.js"></script>
+</body>
+
+</html>

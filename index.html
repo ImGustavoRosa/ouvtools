@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OuvTools - Ferramentas para Ouvidores</title>
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<!-- <img src="./img/logo.png" style="display: block; margin: 0.25rem auto -1.5rem auto;"/> -->
+<body>
+    <div class="container">
+        <div class="box" id="abertura" onclick="MainContainerSelecionada(this.id)">Abertura</div>
+        <div class="box" id="encaminhamento" onclick="MainContainerSelecionada(this.id)">Encaminhamento</div>
+        <div class="box" id="resposta" onclick="MainContainerSelecionada(this.id)">Resposta</div>
+        <div class="box" id="fechamento" onclick="MainContainerSelecionada(this.id)">Fechamento</div>
+    </div>
+    <!-- botão copiar -->
+    <div class="content" id="content">Clique em uma DIV para carregar o conteúdo</div>
+    <!-- texto copiado com sucesso -->
+    <div id="copySuccessMessage" class="textoCopiado"><strong>Copiado</strong> com sucesso!</div>
+    <div id="textoSaidaLimpado" class="textoLimpado"><strong>Limpado</strong> com sucesso!</div>
+
+    <div class="footer">
+        Copyrigth &copy; <span class="ouvName">Ouv</span><span class="toolsName">Tools</span> - Ferramentas para Ouvidores 2023 - 2024. Todos os Direitos Reservados. <br>
+        Created by <a href="https://instagram.com/gustavorosads" target="_blank">Gustavo Rosa</a>.
+    </div>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/abertura.js"></script>
+    <script src="./scripts/encaminhamento.js"></script>
+    <script src="./scripts/fechamento.js"></script>
+    <script src="./scripts/resposta.js"></script>
+    <script src="../scripts/abertura-options.js"></script>
+</body>
+
+</html>
